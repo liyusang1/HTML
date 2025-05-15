@@ -36,8 +36,8 @@
             height: auto;
             display: block;
 
-	border-radius: 1rem; /* 모서리 둥글게 */
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            border-radius: 1rem; /* 모서리 둥글게 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
         }
     </style>
 </head>
@@ -49,7 +49,7 @@
         <div class="inner">
 
             <header id="header">
-                <h1>🏔️ 삿포로 여행 가이드</h1>
+                <h2>🏔️ 삿포로 여행 가이드</h2>
             </header>
 
             <section id="banner">
@@ -149,53 +149,45 @@
 
     <div id="sidebar">
         <div class="inner">
+
+            <!-- Menu -->
             <nav id="menu">
-                <header class="major"><h2>Menu</h2></header>
+                <header class="major">
+                    <h2>여행지 목록</h2>
+                </header>
                 <ul>
                     <li><a href="index.html">메인</a></li>
-                    <li><a href="#overview">소개</a></li>
-                    <li><a href="#attractions">관광지</a></li>
-                    <li><a href="#food">먹거리</a></li>
-                    <li><a href="#tips">여행 팁</a></li>
-                    <li><a href="#map">지도</a></li>
+                    <li><a href="jed1.html">오사카</a></li>
+                    <li><a href="jed2.html" style="font-weight: bold; color: #ff5733;">삿포로</a></li>
+                    <li><a href="LYS1.html">런던</a></li>
+                    <li><a href="js_second.html">제주도</a></li>
+                    <li><a href="js_first.html">도쿄</a></li>
+                    <li><a href="HJY2.html">베이징</a></li>
+                    <li><a href="HJY1.html">선전</a></li>
+                    <li><a href="PhuQuoc.html">푸꾸옥</a></li>
                 </ul>
             </nav>
+
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2 style="font-family: 'Nanum Gothic', sans-serif; font-weight: 400; font-style: normal;">✈️ 우리들의
+                        가고 싶은 여행지</h2>
+                </header>
+                <p style="font-family: 'Nanum Gothic', sans-serif; font-weight: 400; font-style: normal;">여행은 단순한 이동이
+                    아닌, 새로운 경험과 만남, 그리고 나만의 이야기를 만들어가는 여정입니다.
+                </p>
+
+            </section>
+
         </div>
     </div>
-
 </div>
-
-<script>
-    window.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('section');
-        const menuLinks = document.querySelectorAll('#menu a');
-        const nav = document.getElementById('menu');
-        const navHeight = nav.offsetHeight;
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const id = this.getAttribute('href').slice(1);
-                const el = document.getElementById(id);
-                const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({top, behavior: 'smooth'});
-            });
-        });
-
-        window.addEventListener('scroll', function () {
-            const scrollPos = window.pageYOffset;
-            sections.forEach(sec => {
-                const top = sec.offsetTop - navHeight - 1;
-                const bottom = top + sec.offsetHeight;
-                const id = sec.id;
-                if (scrollPos >= top && scrollPos < bottom) {
-                    menuLinks.forEach(l => l.classList.remove('active'));
-                    const active = document.querySelector(`#menu a[href="#${id}"]`);
-                    if (active) active.classList.add('active');
-                }
-            });
-        });
-    });
-</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
